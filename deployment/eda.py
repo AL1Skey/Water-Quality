@@ -5,7 +5,6 @@ import streamlit as st
 import json
 import matplotlib.pyplot as plt
 import seaborn as sns
-import phik
 
 def iscat(data):
     return True if data.nunique() < 15 else False

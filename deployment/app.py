@@ -10,10 +10,10 @@ import prediction
 import home
 import overview
 PAGES = {
-    "home": home,
+    "Home": home,
     "EDA": eda,
-    "prediction":prediction,
-    "model performance":overview
+    "Model Showcase":prediction,
+    "Model Overview":overview
 }
 st.sidebar.title('Navigation')
 selection = st.sidebar.radio("Go to", list(PAGES.keys()))
