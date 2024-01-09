@@ -48,18 +48,18 @@ def conf_matrix_show(feature,target,model_train):
         disp.plot()
         st.pyplot(fig)
 
-def app():     
-    model = joblib.load('model.pkl')
-    database = pd.read_csv('dataset.csv')
-    with open('feature.json','r') as file:
-        feature = json.load(file) 
-    
-    X_inf, y_inf = database.loc[:len(database)*0.2,database.columns[:-1]], database.loc[:len(database)*0.2,database.columns[-1]]
-    X_inf=X_inf[feature]
-    # Model Performance
-    st.write("# Model Performance")
-    st.write("# Classification Report")
-    st.code('''
+#App    
+model = joblib.load('model.pkl')
+database = pd.read_csv('dataset.csv')
+with open('feature.json','r') as file:
+    feature = json.load(file) 
+
+X_inf, y_inf = database.loc[:len(database)*0.2,database.columns[:-1]], database.loc[:len(database)*0.2,database.columns[-1]]
+X_inf=X_inf[feature]
+# Model Performance
+st.write("# Model Performance")
+st.write("# Classification Report")
+st.code('''
 Classification Report
                 precision    recall  f1-score   support
 
@@ -70,10 +70,10 @@ Classification Report
    macro avg       0.94      0.94      0.94      5670
 weighted avg       0.94      0.94      0.94      5670
              ''',language='plaintext')
-    st.write('Precision, Recall and F1-Score have high value')
+st.write('Precision, Recall and F1-Score have high value')
     # full_eva(X_inf,y_inf,model)
     # Confusion Matrix
-    st.write("# Confusion Matrix")
-    st.image('boosttest.png')
-    st.write('This model produce 144 False Positive and 208 False Negative')
+st.write("# Confusion Matrix")
+st.image('boosttest.png')
+st.write('This model produce 144 False Positive and 208 False Negative')
     
